@@ -1,2 +1,2 @@
 # Online-Recipe-Sharing-Platform
-This project is a website where people can share their recipes with others. Users can post their own recipes, search for recipes they like, and leave ratings and comments on recipes shared by others.
+This project is a website where people can share their recipes with others. Users can post their own recipes, search for recipes they like, and leave ratings and comments on recipes shared by others.There are two types of users: normal users, who share and search for recipes and give ratings/comments, and admins, who manage the users and the recipes on the website.
