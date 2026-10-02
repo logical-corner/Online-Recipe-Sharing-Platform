@@ -54,12 +54,16 @@ The main objective of this project is to develop a simple recipe-sharing web app
 * View Saved Recipes
 * View Browsing History
 
+ <img width="1517" height="727" alt="Screenshot 2026-10-02 164935" src="https://github.com/user-attachments/assets/87bd95b9-1eda-4c95-a6e1-f4e4b6e262fe" />
+ 
 ### 👨‍💼 Admin Features
 
 * Admin Dashboard
 * View Submitted Recipes
 * Approve Recipes
 * Reject Recipes
+
+<img width="1082" height="730" alt="Screenshot 2026-10-02 164957" src="https://github.com/user-attachments/assets/e674d01f-43aa-4ed5-b877-e5d637f631d8" />
 
 ---
 
