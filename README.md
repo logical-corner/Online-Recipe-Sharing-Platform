@@ -260,9 +260,3 @@ Password: admin123
 The main objective of RecipeShare is to provide a simple platform where users can share, discover, save, rate, and review recipes while demonstrating Java OOP concepts, JDBC database connectivity, MySQL, and Java Servlets.
 
 ---
-
-## Project Type
-
-**College Project**
-
-Developed for educational purposes using Java, HTML, Tailwind CSS, JDBC, MySQL, and Apache Tomcat.
