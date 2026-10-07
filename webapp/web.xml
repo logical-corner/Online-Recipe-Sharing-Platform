@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app
+    xmlns="https://jakarta.ee/xml/ns/jakartaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                        https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+    version="6.0">
+
+    <!-- Welcome Page -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+
+    <!-- ==================== REGISTER ==================== -->
+
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+
+        <servlet-class>
+            com.recipe.servlet.RegisterServlet
+        </servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- ==================== LOGIN ==================== -->
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+
+        <servlet-class>
+            com.recipe.servlet.LoginServlet
+        </servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- ==================== ADD RECIPE ==================== -->
+
+    <servlet>
+        <servlet-name>AddRecipeServlet</servlet-name>
+
+        <servlet-class>
+            com.recipe.servlet.AddRecipeServlet
+        </servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddRecipeServlet</servlet-name>
+
+        <url-pattern>/addRecipe</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+    <servlet-name>ApproveRecipeServlet</servlet-name>
+    <servlet-class>
+        com.recipe.servlet.ApproveRecipeServlet
+    </servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>ApproveRecipeServlet</servlet-name>
+    <url-pattern>/approveRecipe</url-pattern>
+</servlet-mapping>
+
+</web-app>
