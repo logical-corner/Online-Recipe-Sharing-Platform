@@ -1,63 +1,75 @@
-# RecipeShare - Online Recipe Sharing Platform
+# 🍴 RecipeShare - Online Recipe Sharing Platform
 
-## Project Overview
+## 📌 Project Overview
 
-RecipeShare is a Java-based Online Recipe Sharing Platform developed as a college project.
+**RecipeShare** is a Java-based Online Recipe Sharing Platform developed as a college project.
 
-The platform allows users to discover recipes, share their own recipes, rate and review recipes, save recipes to their collection, and maintain browsing history.
+The platform allows users to register, log in, discover recipes, view recipe details, share recipes, rate and review recipes, save recipes, and maintain browsing history.
 
-An administrator can manage users and approve or reject submitted recipes.
+An administrator can review submitted recipes and approve or reject them before they are published.
 
 ---
 
-## Technologies Used
+## 🎯 Project Objective
 
-* HTML
-* Tailwind CSS
-* Java
+The main objective of this project is to develop a simple recipe-sharing web application while demonstrating:
+
+* Java Object-Oriented Programming
 * Java Servlets
-* JDBC
-* MySQL
+* JDBC database connectivity
+* MySQL database management
+* HTML and Tailwind CSS
 * Apache Tomcat
-* VS Code
 
 ---
 
-## Main Features
+## 🛠️ Technologies Used
 
-### User Features
+| Technology         | Purpose                 |
+| ------------------ | ----------------------- |
+| HTML               | Web pages and forms     |
+| Tailwind CSS       | User interface styling  |
+| Java               | Backend development     |
+| Java Servlets      | Handling web requests   |
+| JDBC               | Database connectivity   |
+| MySQL              | Data storage            |
+| Apache Tomcat 10.1 | Web server              |
+| VS Code            | Development environment |
+
+---
+
+## ✨ Features
+
+### 👤 User Features
 
 * User Registration
 * User Login
-* Browse Recipes
-* Search and Discover Recipes
+* Discover Recipes
 * View Recipe Details
 * Add New Recipes
+* Submit Recipes for Admin Approval
 * Rate Recipes
-* Write Reviews
+* Add Reviews
 * Save Recipes
 * View Saved Recipes
 * View Browsing History
 
-### Admin Features
+### 👨‍💼 Admin Features
 
-* Admin Login
-* View Pending Recipes
+* Admin Dashboard
+* View Submitted Recipes
 * Approve Recipes
 * Reject Recipes
-* Manage Users
 
 ---
 
-## Java OOP Concepts Used
+## 🧠 Java OOP Concepts Used
 
-The project demonstrates the following Object-Oriented Programming concepts:
+This project demonstrates important Object-Oriented Programming concepts.
 
-### Encapsulation
+### 1. Encapsulation
 
-Private variables are used inside classes with public getter and setter methods.
-
-Example:
+Private data members are accessed using getter and setter methods.
 
 ```java
 private String name;
@@ -71,9 +83,9 @@ public void setName(String name) {
 }
 ```
 
-### Inheritance
+### 2. Inheritance
 
-Classes such as `Admin`, `RecipeContributor`, and `RecipeExplorer` inherit from the `User` class.
+Different user types inherit from the `User` class.
 
 ```text
 User
@@ -82,9 +94,9 @@ User
 └── RecipeExplorer
 ```
 
-### Polymorphism
+### 3. Polymorphism
 
-The `displayDashboard()` method is overridden by different user types.
+The `displayDashboard()` method is overridden by different child classes.
 
 ```java
 @Override
@@ -93,18 +105,18 @@ public void displayDashboard() {
 }
 ```
 
-### Abstraction
+### 4. Abstraction
 
-Interfaces are used to define common actions.
+Interfaces are used to define common operations.
 
 Examples:
 
 * `RecipeActions`
 * `RatingActions`
 
-### Interface
+### 5. Interface
 
-`RecipeActions` provides methods for recipe management:
+`RecipeActions` defines recipe-related operations:
 
 ```java
 void addRecipe();
@@ -112,48 +124,49 @@ void updateRecipe();
 void deleteRecipe();
 ```
 
-### Method Overriding
+### 6. Method Overriding
 
 Child classes override methods inherited from the parent class.
 
-### Method Overloading
+### 7. Constructor Overloading
 
-Constructors with different parameters are used in the model classes.
+Multiple constructors with different parameter lists are used in model classes.
 
-### Exception Handling
+### 8. Exception Handling
 
-Custom exception handling is implemented using:
+A custom exception class is included:
 
-```java
+```text
 RecipeException
 ```
 
 ---
 
-## Database
+## 🗄️ Database
 
-The project uses MySQL.
+The project uses **MySQL**.
 
-Database name:
+### Database Name
 
 ```text
 recipe_platform
 ```
 
-Main tables:
+### Main Tables
 
-* users
-* recipes
-* ratings
-* collections
-* browsing_history
-* messages
-* settings
+* `users`
+* `recipes`
+* `ratings`
+* `collections`
+* `browsing_history`
+* `messages`
+* `settings`
 
 ---
 
-## Project Structure
+## 📂 Project Structure
 
+```text
 OnlineRecipePlatform/
 │
 ├── src/
@@ -186,33 +199,56 @@ OnlineRecipePlatform/
 │   └── recipe_platform.sql
 │
 └── README.md
+```
 
 ---
 
-## How to Run the Project
+## ⚙️ Setup and Run
 
-### 1. Start MySQL
+### 1. Install Required Software
 
-Make sure MySQL is running.
+Make sure the following are installed:
 
-### 2. Start Apache Tomcat
+* Java JDK
+* MySQL
+* Apache Tomcat 10.1
+* VS Code
 
-Open the Tomcat `bin` folder and run:
+### 2. Create the Database
+
+Create the MySQL database:
+
+```sql
+CREATE DATABASE recipe_platform;
+```
+
+Then create the required tables using:
 
 ```text
-run-recipe.bat
+database/recipe_platform.sql
 ```
 
-Or from the VS Code terminal:
-
-```powershell
-cd "C:\Users\Raj Verma\Downloads\apache-tomcat-10.1.60-windows-x64\apache-tomcat-10.1.60\bin"
-.\run-recipe.bat
-```
-
-### 3. Open the Application
+### 3. Configure MySQL Connection
 
 Open:
+
+```text
+src/com/recipe/util/DatabaseConnection.java
+```
+
+Update your local MySQL password:
+
+```java
+private static final String PASSWORD = "YOUR_PASSWORD";
+```
+
+**Do not upload your real MySQL password to GitHub.**
+
+### 4. Start Apache Tomcat
+
+Start Tomcat from its `bin` folder.
+
+The application runs at:
 
 ```text
 http://localhost:8080/RecipeSharing/
@@ -220,43 +256,50 @@ http://localhost:8080/RecipeSharing/
 
 ---
 
-## Database Configuration
+## 🔐 Test Admin Account
 
-The database connection is configured in:
-
-```text
-src/com/recipe/util/DatabaseConnection.java
-```
-
-Update the MySQL password if required.
-
-Example:
-
-```java
-private static final String URL =
-    "jdbc:mysql://localhost:3306/recipe_platform";
-
-private static final String USER = "root";
-
-private static final String PASSWORD =
-    "YOUR_PASSWORD";
-```
-
----
-
-## Admin Account
-
-For testing:
+For local testing:
 
 ```text
 Email: admin@gmail.com
 Password: admin123
 ```
 
----
-
-## Project Objective
-
-The main objective of RecipeShare is to provide a simple platform where users can share, discover, save, rate, and review recipes while demonstrating Java OOP concepts, JDBC database connectivity, MySQL, and Java Servlets.
+> This account is intended only for local college-project testing.
 
 ---
+
+## 🔌 JDBC Connection
+
+The application connects to MySQL using JDBC.
+
+Example connection:
+
+```text
+jdbc:mysql://localhost:3306/recipe_platform
+```
+
+The MySQL Connector/J driver is used for database connectivity.
+
+---
+
+## 🌐 Application Pages
+
+The project contains pages such as:
+
+* Login
+* Registration
+* Recipe Discovery
+* Recipe Details
+* User Dashboard
+* Add Recipe
+* Admin Dashboard
+
+---
+
+## 👨‍💻 Project Type
+
+**College Project**
+
+Built using Java, HTML, Tailwind CSS, JDBC, MySQL, and Apache Tomcat.
+
