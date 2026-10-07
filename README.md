@@ -37,6 +37,7 @@ The main objective of this project is to develop a simple recipe-sharing web app
 | VS Code            | Development environment |
 
 ---
+<img width="1517" height="727" alt="Screenshot 2026-10-02 164935" src="https://github.com/user-attachments/assets/08096444-b419-4c9d-82f8-fa6aaac63c15" />
 
 ## ✨ Features
 
