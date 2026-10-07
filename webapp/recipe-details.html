@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>RecipeShare - Recipe Details</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+
+        body {
+            background: #f8fafc;
+        }
+
+        .recipe-hero {
+            height: 420px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+
+            .recipe-hero {
+                height: 280px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="min-h-screen">
+
+
+    <!-- NAVBAR -->
+
+    <nav class="bg-white border-b border-gray-100 sticky top-0 z-50">
+
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+
+            <div class="flex items-center justify-between h-20">
+
+
+                <!-- LOGO -->
+
+                <a href="dashboard.html"
+                   class="flex items-center gap-3">
+
+                    <div class="w-11 h-11 bg-orange-500 rounded-xl
+                                flex items-center justify-center text-2xl">
+                        🍴
+                    </div>
+
+                    <div>
+
+                        <h1 class="text-xl font-bold text-gray-900">
+                            RecipeShare
+                        </h1>
+
+                        <p class="text-xs text-gray-500">
+                            Share • Discover • Enjoy
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- NAVIGATION -->
+
+                <div class="hidden md:flex items-center gap-7">
+
+                    <a href="dashboard.html"
+                       class="text-gray-600 hover:text-orange-500 font-medium">
+                        Dashboard
+                    </a>
+
+                    <a href="recipes.html"
+                       class="text-orange-500 font-semibold">
+                        Discover
+                    </a>
+
+                    <a href="add-recipe.html"
+                       class="text-gray-600 hover:text-orange-500 font-medium">
+                        Add Recipe
+                    </a>
+
+                    <a href="index.html"
+                       class="text-gray-600 hover:text-red-500 font-medium">
+                        Logout
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- MAIN -->
+
+    <main class="max-w-6xl mx-auto px-5 sm:px-8 py-10">
+
+
+        <!-- BACK BUTTON -->
+
+        <a href="recipes.html"
+           class="inline-flex items-center gap-2
+                  text-gray-600 hover:text-orange-500
+                  font-semibold mb-7">
+
+            ← Back to Discover Recipes
+
+        </a>
+
+
+        <!-- RECIPE CONTAINER -->
+
+        <div class="bg-white rounded-3xl overflow-hidden
+                    border border-gray-100
+                    shadow-sm">
+
+
+            <!-- IMAGE -->
+
+            <div>
+
+                <img
+                    id="recipeImage"
+                    src=""
+                    alt="Recipe"
+                    class="recipe-hero w-full"
+                >
+
+            </div>
+
+
+
+            <!-- CONTENT -->
+
+            <div class="p-7 sm:p-10">
+
+
+                <!-- CATEGORY + RATING -->
+
+                <div class="flex flex-wrap items-center
+                            justify-between gap-4 mb-5">
+
+
+                    <span
+                        id="recipeCategory"
+                        class="text-sm font-semibold
+                               text-orange-500
+                               bg-orange-50
+                               px-4 py-2 rounded-full">
+                    </span>
+
+
+                    <span
+                        id="recipeRating"
+                        class="text-gray-600 font-medium">
+                    </span>
+
+                </div>
+
+
+
+                <!-- TITLE -->
+
+                <h1
+                    id="recipeName"
+                    class="text-4xl sm:text-5xl
+                           font-bold text-gray-900">
+                </h1>
+
+
+
+                <!-- DESCRIPTION -->
+
+                <p
+                    id="recipeDescription"
+                    class="text-gray-500 text-lg
+                           leading-relaxed mt-5 max-w-3xl">
+                </p>
+
+
+
+                <!-- INFO -->
+
+                <div class="grid grid-cols-2 sm:grid-cols-4
+                            gap-4 mt-8">
+
+
+                    <div class="bg-gray-50 rounded-2xl p-5">
+
+                        <p class="text-sm text-gray-500">
+                            Cooking Time
+                        </p>
+
+                        <p
+                            id="recipeTime"
+                            class="text-lg font-bold text-gray-900 mt-1">
+                        </p>
+
+                    </div>
+
+
+                    <div class="bg-gray-50 rounded-2xl p-5">
+
+                        <p class="text-sm text-gray-500">
+                            Difficulty
+                        </p>
+
+                        <p
+                            id="recipeDifficulty"
+                            class="text-lg font-bold text-gray-900 mt-1">
+                        </p>
+
+                    </div>
+
+
+                    <div class="bg-gray-50 rounded-2xl p-5">
+
+                        <p class="text-sm text-gray-500">
+                            Rating
+                        </p>
+
+                        <p
+                            id="recipeRatingBox"
+                            class="text-lg font-bold text-gray-900 mt-1">
+                        </p>
+
+                    </div>
+
+
+                    <div class="bg-gray-50 rounded-2xl p-5">
+
+                        <p class="text-sm text-gray-500">
+                            Servings
+                        </p>
+
+                        <p
+                            id="recipeServings"
+                            class="text-lg font-bold text-gray-900 mt-1">
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CONTENT GRID -->
+
+                <div class="grid lg:grid-cols-2 gap-10 mt-12">
+
+
+                    <!-- INGREDIENTS -->
+
+                    <div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-5">
+                            🥕 Ingredients
+                        </h2>
+
+                        <div
+                            id="recipeIngredients"
+                            class="space-y-3">
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- INSTRUCTIONS -->
+
+                    <div>
+
+                        <h2 class="text-2xl font-bold text-gray-900 mb-5">
+                            👨‍🍳 Instructions
+                        </h2>
+
+                        <div
+                            id="recipeInstructions"
+                            class="space-y-4">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ACTIONS -->
+
+                <div class="flex flex-wrap gap-4 mt-12
+                            pt-8 border-t border-gray-100">
+
+
+                    <button
+                        onclick="saveRecipe()"
+                        class="bg-orange-500 hover:bg-orange-600
+                               text-white px-6 py-3 rounded-xl
+                               font-semibold transition">
+
+                        ❤️ Save Recipe
+
+                    </button>
+
+
+                    <button
+                        onclick="window.print()"
+                        class="border border-gray-200
+                               hover:border-orange-500
+                               hover:text-orange-500
+                               text-gray-700 px-6 py-3
+                               rounded-xl font-semibold transition">
+
+                        🖨 Print Recipe
+
+                    </button>
+
+
+                    <a href="recipes.html"
+                       class="border border-gray-200
+                              hover:border-orange-500
+                              hover:text-orange-500
+                              text-gray-700 px-6 py-3
+                              rounded-xl font-semibold transition">
+
+                        ← More Recipes
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="bg-gray-900 text-white mt-10">
+
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 py-8">
+
+            <div class="flex flex-col sm:flex-row
+                        justify-between items-center gap-4">
+
+
+                <div class="flex items-center gap-3">
+
+                    <div class="w-9 h-9 bg-orange-500
+                                rounded-lg flex items-center
+                                justify-center">
+
+                        🍴
+
+                    </div>
+
+                    <span class="font-semibold">
+                        RecipeShare
+                    </span>
+
+                </div>
+
+
+                <p class="text-gray-400 text-sm">
+                    Share • Discover • Enjoy
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+
+        const recipes = {
+
+
+            "Paneer Butter Masala": {
+
+                category: "Indian",
+
+                rating: "⭐ 4.9",
+
+                time: "40 minutes",
+
+                difficulty: "Medium",
+
+                servings: "4 people",
+
+                image:
+                "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=1200&q=80",
+
+                description:
+                "A creamy and delicious Indian paneer dish cooked in a rich tomato, butter and cream gravy.",
+
+                ingredients: [
+
+                    "250g paneer",
+
+                    "2 tablespoons butter",
+
+                    "3 tomatoes",
+
+                    "1/2 cup fresh cream",
+
+                    "1 onion",
+
+                    "1 teaspoon ginger-garlic paste",
+
+                    "1 teaspoon garam masala",
+
+                    "1 teaspoon red chilli powder",
+
+                    "Salt to taste"
+
+                ],
+
+                instructions: [
+
+                    "Heat butter in a pan and add chopped onions.",
+
+                    "Add ginger-garlic paste and cook for a few minutes.",
+
+                    "Add tomato puree and cook until the oil separates.",
+
+                    "Add spices and mix well.",
+
+                    "Add paneer pieces and cook for 5 minutes.",
+
+                    "Add fresh cream and simmer for a few minutes.",
+
+                    "Serve hot with naan, roti or rice."
+
+                ]
+
+            },
+
+
+            "Creamy Pasta": {
+
+                category: "Italian",
+
+                rating: "⭐ 4.8",
+
+                time: "25 minutes",
+
+                difficulty: "Easy",
+
+                servings: "2 people",
+
+                image:
+                "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1200&q=80",
+
+                description:
+                "A delicious creamy pasta prepared with herbs, cheese and a smooth creamy sauce.",
+
+                ingredients: [
+
+                    "200g pasta",
+
+                    "1 tablespoon butter",
+
+                    "1 cup fresh cream",
+
+                    "1/2 cup parmesan cheese",
+
+                    "2 garlic cloves",
+
+                    "Mixed herbs",
+
+                    "Black pepper",
+
+                    "Salt to taste"
+
+                ],
+
+                instructions: [
+
+                    "Boil pasta in salted water until soft.",
+
+                    "Heat butter in a pan and add chopped garlic.",
+
+                    "Add fresh cream and cook on low heat.",
+
+                    "Add parmesan cheese and mix well.",
+
+                    "Add cooked pasta and herbs.",
+
+                    "Season with salt and black pepper.",
+
+                    "Serve hot."
+
+                ]
+
+            },
+
+
+            "Fresh Garden Salad": {
+
+                category: "Healthy",
+
+                rating: "⭐ 4.7",
+
+                time: "15 minutes",
+
+                difficulty: "Easy",
+
+                servings: "2 people",
+
+                image:
+                "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80",
+
+                description:
+                "A fresh and healthy salad made with colorful vegetables and a light refreshing dressing.",
+
+                ingredients: [
+
+                    "1 cucumber",
+
+                    "2 tomatoes",
+
+                    "1 carrot",
+
+                    "1/2 onion",
+
+                    "Lettuce",
+
+                    "1 tablespoon olive oil",
+
+                    "1 tablespoon lemon juice",
+
+                    "Salt and pepper"
+
+                ],
+
+                instructions: [
+
+                    "Wash all vegetables thoroughly.",
+
+                    "Chop cucumber, tomatoes, carrot and onion.",
+
+                    "Add lettuce to a large bowl.",
+
+                    "Add all chopped vegetables.",
+
+                    "Mix olive oil and lemon juice.",
+
+                    "Pour the dressing over the salad.",
+
+                    "Add salt and pepper and serve fresh."
+
+                ]
+
+            },
+
+
+            "Vegetable Noodles": {
+
+                category: "Chinese",
+
+                rating: "⭐ 4.6",
+
+                time: "20 minutes",
+
+                difficulty: "Easy",
+
+                servings: "2 people",
+
+                image:
+                "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&fit=crop&w=1200&q=80",
+
+                description:
+                "Stir-fried noodles packed with colorful vegetables and delicious Asian flavors.",
+
+                ingredients: [
+
+                    "200g noodles",
+
+                    "1 carrot",
+
+                    "1 capsicum",
+
+                    "1/2 cabbage",
+
+                    "2 spring onions",
+
+                    "2 tablespoons soy sauce",
+
+                    "1 tablespoon cooking oil",
+
+                    "Black pepper",
+
+                    "Salt"
+
+                ],
+
+                instructions: [
+
+                    "Boil noodles according to the package instructions.",
+
+                    "Heat oil in a wok.",
+
+                    "Add chopped vegetables and stir fry.",
+
+                    "Add soy sauce and mix well.",
+
+                    "Add cooked noodles.",
+
+                    "Toss everything together on high heat.",
+
+                    "Garnish with spring onions and serve."
+
+                ]
+
+            },
+
+
+            "Butter Chicken": {
+
+                category: "Indian",
+
+                rating: "⭐ 4.9",
+
+                time: "50 minutes",
+
+                difficulty: "Medium",
+
+                servings: "4 people",
+
+                image:
+                "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=1200&q=80",
+
+                description:
+                "Tender chicken cooked in a rich, creamy and flavorful tomato-based butter sauce.",
+
+                ingredients: [
+
+                    "500g chicken",
+
+                    "2 tablespoons butter",
+
+                    "3 tomatoes",
+
+                    "1/2 cup cream",
+
+                    "1 onion",
+
+                    "1 tablespoon ginger-garlic paste",
+
+                    "1 teaspoon garam masala",
+
+                    "1 teaspoon chilli powder",
+
+                    "Salt"
+
+                ],
+
+                instructions: [
+
+                    "Marinate chicken with spices for at least 30 minutes.",
+
+                    "Cook chicken until lightly browned.",
+
+                    "Prepare a tomato and onion gravy.",
+
+                    "Add butter and spices to the gravy.",
+
+                    "Add cooked chicken.",
+
+                    "Add fresh cream and simmer.",
+
+                    "Serve hot with naan or rice."
+
+                ]
+
+            },
+
+
+            "Chocolate Cake": {
+
+                category: "Dessert",
+
+                rating: "⭐ 4.8",
+
+                time: "45 minutes",
+
+                difficulty: "Medium",
+
+                servings: "8 pieces",
+
+                image:
+                "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80",
+
+                description:
+                "A soft, rich and delicious chocolate cake perfect for dessert lovers and special occasions.",
+
+                ingredients: [
+
+                    "1 cup all-purpose flour",
+
+                    "1/2 cup cocoa powder",
+
+                    "1 cup sugar",
+
+                    "2 eggs",
+
+                    "1/2 cup milk",
+
+                    "1/2 cup butter",
+
+                    "1 teaspoon baking powder",
+
+                    "1 teaspoon vanilla essence",
+
+                    "A pinch of salt"
+
+                ],
+
+                instructions: [
+
+                    "Preheat the oven to 180°C.",
+
+                    "Mix flour, cocoa powder, baking powder and salt.",
+
+                    "In another bowl, mix butter, sugar and eggs.",
+
+                    "Add milk and vanilla essence.",
+
+                    "Combine the wet and dry ingredients.",
+
+                    "Pour the batter into a greased cake pan.",
+
+                    "Bake for approximately 35 to 45 minutes.",
+
+                    "Allow the cake to cool before serving."
+
+                ]
+
+            }
+
+        };
+
+
+
+        function loadRecipe() {
+
+
+            const params =
+                new URLSearchParams(window.location.search);
+
+
+            const recipeName =
+                params.get("recipe");
+
+
+            const recipe =
+                recipes[recipeName];
+
+
+            if (!recipe) {
+
+                document.getElementById("recipeName")
+                    .textContent = "Recipe Not Found";
+
+                document.getElementById("recipeDescription")
+                    .textContent =
+                    "The requested recipe could not be found.";
+
+                return;
+
+            }
+
+
+            document.title =
+                "RecipeShare - " + recipeName;
+
+
+            document.getElementById("recipeName")
+                .textContent = recipeName;
+
+
+            document.getElementById("recipeCategory")
+                .textContent = recipe.category;
+
+
+            document.getElementById("recipeRating")
+                .textContent = recipe.rating;
+
+
+            document.getElementById("recipeDescription")
+                .textContent = recipe.description;
+
+
+            document.getElementById("recipeTime")
+                .textContent = recipe.time;
+
+
+            document.getElementById("recipeDifficulty")
+                .textContent = recipe.difficulty;
+
+
+            document.getElementById("recipeRatingBox")
+                .textContent = recipe.rating;
+
+
+            document.getElementById("recipeServings")
+                .textContent = recipe.servings;
+
+
+            document.getElementById("recipeImage")
+                .src = recipe.image;
+
+
+            const ingredients =
+                document.getElementById("recipeIngredients");
+
+
+            ingredients.innerHTML = "";
+
+
+            recipe.ingredients.forEach(item => {
+
+                ingredients.innerHTML += `
+
+                    <div class="flex items-start gap-3
+                                bg-gray-50 rounded-xl p-4">
+
+                        <span class="text-orange-500">
+                            ✓
+                        </span>
+
+                        <span class="text-gray-700">
+                            ${item}
+                        </span>
+
+                    </div>
+
+                `;
+
+            });
+
+
+            const instructions =
+                document.getElementById("recipeInstructions");
+
+
+            instructions.innerHTML = "";
+
+
+            recipe.instructions.forEach((step, index) => {
+
+                instructions.innerHTML += `
+
+                    <div class="flex gap-4">
+
+                        <div class="flex-shrink-0
+                                    w-9 h-9
+                                    bg-orange-500
+                                    text-white
+                                    rounded-full
+                                    flex items-center
+                                    justify-center
+                                    font-bold">
+
+                            ${index + 1}
+
+                        </div>
+
+                        <p class="text-gray-600
+                                  leading-relaxed
+                                  pt-1">
+
+                            ${step}
+
+                        </p>
+
+                    </div>
+
+                `;
+
+            });
+
+        }
+
+
+
+        function saveRecipe() {
+
+            alert(
+                "Recipe saved to My Collection!"
+            );
+
+        }
+
+
+
+        loadRecipe();
+
+    </script>
+
+</body>
+
+</html>

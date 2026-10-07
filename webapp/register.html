@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>RecipeShare - Register</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-orange-50 min-h-screen flex items-center justify-center">
+
+    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
+
+        <h1 class="text-3xl font-bold text-center text-orange-600 mb-2">
+            Create Account
+        </h1>
+
+        <p class="text-center text-gray-500 mb-8">
+            Join RecipeShare
+        </p>
+
+        <form id="registerForm">
+
+            <div class="mb-4">
+
+                <label class="block text-gray-700 font-medium mb-2">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    required
+                    placeholder="Enter your name"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-3">
+
+            </div>
+
+
+            <div class="mb-4">
+
+                <label class="block text-gray-700 font-medium mb-2">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    required
+                    placeholder="Enter your email"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-3">
+
+            </div>
+
+
+            <div class="mb-4">
+
+                <label class="block text-gray-700 font-medium mb-2">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    required
+                    placeholder="Create a password"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-3">
+
+            </div>
+
+
+            <div class="mb-6">
+
+                <label class="block text-gray-700 font-medium mb-2">
+                    Register As
+                </label>
+
+                <select
+                    id="role"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-3">
+
+                    <option value="EXPLORER">
+                        Recipe Explorer
+                    </option>
+
+                    <option value="CONTRIBUTOR">
+                        Recipe Contributor
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="w-full bg-orange-600 hover:bg-orange-700
+                       text-white py-3 rounded-lg font-semibold">
+
+                Create Account
+
+            </button>
+
+        </form>
+
+
+        <p id="message"
+           class="text-center mt-4">
+        </p>
+
+
+        <p class="text-center mt-6 text-gray-600">
+
+            Already have an account?
+
+            <a href="index.html"
+               class="text-orange-600 font-semibold">
+
+                Login
+
+            </a>
+
+        </p>
+
+    </div>
+
+
+    <script>
+
+        document.getElementById("registerForm").addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+                const name =
+                    document.getElementById("name").value;
+
+                const message =
+                    document.getElementById("message");
+
+
+                if (name.trim() !== "") {
+
+                    message.textContent =
+                        "Registration successful!";
+
+                    message.className =
+                        "text-center mt-4 text-green-600";
+
+                    setTimeout(function() {
+
+                        window.location.href =
+                            "index.html";
+
+                    }, 1000);
+
+                }
+
+            }
+
+        );
+
+    </script>
+
+</body>
+
+</html>
